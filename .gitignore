@@ -1,0 +1,72 @@
+################################################################################
+#                                  .GITIGNORE                                  #
+################################################################################
+
+# - Klasa/DiscordJS Database
+bwd
+
+# - Klasa Configuration
+config.json
+
+# - Logs
+logs
+*.log
+npm-debug.log*
+
+# - Node Dependency
+node_modules
+jspm_packages
+.npm
+
+# - Node Compiler
+build/Release
+*.tgz
+
+# - Node Runtime
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# - Coverage Tests
+lib-cov
+coverage
+.nyc_output
+
+# - ESLint Cache
+.eslintcache
+
+# - REPL History
+.node_repl_history
+
+# - Environment Variables
+.env
+
+# - Linux
+~*
+.directory
+.Trash-*
+
+# - Mac OS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# - Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
