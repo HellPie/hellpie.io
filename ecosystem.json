@@ -1,0 +1,13 @@
+{
+	"apps" : [{
+		"name"                  : "hellpie.io",
+		"script"                : "index.js",
+		"watch"                 : true,
+		"max_memory_restart"    : "8M",
+		"max_restarts"          : "8",
+		"min_uptime"            : 16000,
+		"restart_delay"         : "3000",
+		"autorestart"           : true,
+		"post_update"           : [ "npm install --production" ]
+	}]
+}

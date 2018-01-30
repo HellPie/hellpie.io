@@ -1,0 +1,4 @@
+{
+	"token": "Your Mastodon Application's Token (See README > Configuration > Mastodon Token).",
+	"id": "Your Mastodon User ID (See README > Configuration > Mastodon User ID)."
+}
