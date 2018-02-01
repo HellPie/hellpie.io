@@ -2,6 +2,13 @@
 All changes to this project wll be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.1.0] - 2018-02-01 01:43
+### Added:
+- Beginning of Mastodon API.
+- Test index.js to see if the Mastodon API endpoints work.
+### Fixed:
+- HelpTTP breaking and showing wrong types in JSDoc.
+
 ## [0.0.3] - 2018-02-01 00:54
 ### Added:
 - HelpTTP class as a 0-dependency asynchronous HTTP and HTTPS request client.
