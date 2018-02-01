@@ -27,7 +27,7 @@ class HelpTTP {
 	 * @memberof HelpTTP
 	 */
 	static async request(method, url, options = {}) {
-		if(!["GET", "POST", "HEAD", "PATCH", "PUT", "DELETE", "OPTIONS", "CONNECT"].includes(method.ToUpperCase())) throw new URIError("Specified method is not a recognized HTTP method.");
+		if(!["GET", "POST", "HEAD", "PATCH", "PUT", "DELETE", "OPTIONS", "CONNECT"].includes(method.toUpperCase())) throw new URIError("Specified method is not a recognized HTTP method.");
 		if(!options) options = {};
 
 		const address = parse(url);
@@ -69,11 +69,11 @@ class HelpTTP {
 					return;
 				}
 
-				let body = new Buffer([]);
-				response.on("data", (chunk) => body = Buffer.concat(body, chunk));
+				const body = [];
+				response.on("data", (chunk) => body.push(chunk));
 
 				response.on("end", () => {
-					resolve(body);
+					resolve(body.join(""));
 				});
 			});
 
@@ -110,8 +110,8 @@ class HelpTTP {
 	/**
 	 * @description Sends an HTTP GET request.
 	 * @static
-	 * @param {any} url The URI to which the HTTP request will be sent to.
-	 * @param {any} options Options to customize the request.
+	 * @param {string} url The URI to which the HTTP request will be sent to.
+	 * @param {?HelpTTPOptions} options Options to customize the request.
 	 * @returns {?(Error|http.serverResponse)} The content of the request or an error.
 	 * @memberof HelpTTP
 	 */
@@ -122,8 +122,8 @@ class HelpTTP {
 	/**
 	 * @description Sends an HTTP POST request.
 	 * @static
-	 * @param {any} url The URI to which the HTTP request will be sent to.
-	 * @param {any} options Options to customize the request.
+	 * @param {string} url The URI to which the HTTP request will be sent to.
+	 * @param {?HelpTTPOptions} options Options to customize the request.
 	 * @returns {?(Error|http.serverResponse)} The content of the request or an error.
 	 * @memberof HelpTTP
 	 */
@@ -134,8 +134,8 @@ class HelpTTP {
 	/**
 	 * @description Sends an HTTP PATCH request.
 	 * @static
-	 * @param {any} url The URI to which the HTTP request will be sent to.
-	 * @param {any} options Options to customize the request.
+	 * @param {string} url The URI to which the HTTP request will be sent to.
+	 * @param {?HelpTTPOptions} options Options to customize the request.
 	 * @returns {?(Error|http.serverResponse)} The content of the request or an error.
 	 * @memberof HelpTTP
 	 */
@@ -146,8 +146,8 @@ class HelpTTP {
 	/**
 	 * @description Sends an HTTP DELETE request.
 	 * @static
-	 * @param {any} url The URI to which the HTTP request will be sent to.
-	 * @param {any} options Options to customize the request.
+	 * @param {string} url The URI to which the HTTP request will be sent to.
+	 * @param {?HelpTTPOptions} options Options to customize the request.
 	 * @returns {?(Error|http.serverResponse)} The content of the request or an error.
 	 * @memberof HelpTTP
 	 */
