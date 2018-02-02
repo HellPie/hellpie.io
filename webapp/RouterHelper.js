@@ -1,5 +1,8 @@
 const Router = require("express").Router();
 
+const MastodonAPI = require("../fediverse/MastodonAPI");
+const Config = require("../config.json").mastodon;
+
 const Log = require("./../utils/Log");
 
 Router.get("/", (req, res) => {
@@ -7,7 +10,6 @@ Router.get("/", (req, res) => {
 });
 
 Router.get("*", (req, res, next) => {
-
 	Log.wtf(`Unable to process request: Page ${req.path} does not exist.`);
 
 	const error = {
@@ -34,6 +36,7 @@ class RouterHelper {
 
 	get router() {
 		if(!Router.server) Object.defineProperty(Router, "server", { value: this.server });
+		if(!Router.mastodon) Object.defineProperty(Router, "mastodon", { value: new MastodonAPI(Config.token, Config.config) });
 		return Router;
 	}
 }
