@@ -2,6 +2,12 @@
 All changes to this project wll be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2018-02-01 17:47
+### Added
+- Handlebars header template with style links and fonts.
+- Handlebars index page with dynamic profile card markup.
+- Favicon served through ExpressJS.
+
 ## [0.2.0] - 2018-02-01 12:14
 ### Added:
 - WebServer with basic route and error handling.
