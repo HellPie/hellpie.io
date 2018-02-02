@@ -2,6 +2,7 @@ const {resolve} = require("path");
 
 const Express = require("express");
 
+const Favicon = require("serve-favicon");
 const Sass = require("node-sass-middleware");
 const Handlebars = require("hbs");
 
@@ -41,6 +42,7 @@ class WebServer {
 			outputStyle: "compressed"
 		}));
 
+		this.server.use(Favicon(resolve(process.cwd(), "webapp", "static", "favicon.ico")));
 		this.server.use(Express.static(resolve(process.cwd(), "webapp", "static")));
 		this.server.use("/", new RouterHelper(this).router);
 

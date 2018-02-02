@@ -35,7 +35,8 @@
 		"express": "^4.16.2",
 		"hbs": "^4.0.1",
 		"moment": "^2.20.1",
-		"node-sass-middleware": "^0.11.0"
+		"node-sass-middleware": "^0.11.0",
+		"serve-favicon": "^2.4.5"
 	},
 	"devDependencies": {
 		"eslint": "^4.16.0"
