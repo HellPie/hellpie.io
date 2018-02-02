@@ -1,0 +1,204 @@
+// Twitter Light Color Palette
+$color-primary: #2C3E50;
+$color-secondary: #34495E;
+$color-accent: #1C94E0;
+
+$color-primary_background: #FFFFFF;
+$color-secondary_background: #D2DAE2;
+
+* {
+	font-family: "Noto Sans", "Helvetica Neue", "Roboto", "Segoe UI", Arial, sans-serif;
+}
+
+a {
+	color: $color-accent;
+	text-decoration: none;
+}
+
+body {
+	margin: 0;
+
+	color: $color-primary;
+
+	background: $color-accent;
+}
+
+#background {
+	position: fixed;
+
+	width: 120%;
+	height: 120%;
+
+	transform: translate(-10%, -10%);
+
+	overflow: hidden;
+
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	filter: blur(50px) opacity(50%);
+}
+
+#profile {
+	$card-width: 300px;
+
+	width: $card-width;
+
+	position: fixed;
+
+	top: 20%;
+	left: 50%;
+	padding-bottom: 16px;
+
+	transform: translateX(-50%);
+
+	overflow: hidden;
+
+	background: $color-primary_background;
+
+	border-radius: 4px;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25);
+
+	#header {
+		width: $card-width;
+		height: 110px;
+
+		background-size: cover;
+		background-position: center;
+	}
+
+	#body {
+		margin: 16px;
+
+		#avatar {
+			$avatar-length: 72px;
+
+			position: relative;
+
+			width: $avatar-length;
+			height: $avatar-length;
+
+			margin-top: -50px;
+
+			background-position: center;
+			background-size: cover;
+
+			border: 2px solid $color-primary_background;
+			border-radius: 50%;
+		}
+
+		#button {
+			position: relative;
+
+			margin-top: -30px;
+			padding: 4px 12px;
+
+			float: right;
+
+			color: $color-accent;
+			font-size: 12px;
+			font-weight: bold;
+
+			border: 1px solid $color-accent;
+			border-radius: 14px;
+
+			cursor: pointer;
+
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: -moz-none;
+			-o-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+
+			transition: all 0.15s;
+
+			&:hover {
+				background: lighten($color-accent, 45%);
+			}
+
+			&:active {
+				box-shadow: $color-primary_background 0 0 0 2px, $color-accent 0 0 0 4px;
+			}
+		}
+
+		#user {
+			margin: 10px 0 10px 0;
+
+			#name {
+				color: $color-primary;
+				font-size: 18px;
+				font-weight: bold;
+
+				#badges .material-icons {
+					vertical-align: -1px;
+
+					color: $color-accent;
+					font-size: 18px;
+				}
+			}
+
+			#tag {
+				color: $color-secondary;
+				font-size: 14px;
+
+				#tooltip {
+					margin-left: 6px;
+					padding: 2px 4px;
+
+					color: $color-secondary;
+					font-size: 12px;
+
+					background-color: $color-secondary_background;
+
+					border-radius: 4px;
+				}
+			}
+		}
+
+		#bio {
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+		ul {
+			display: block;
+
+			padding: 0;
+
+			list-style: none;
+
+			li {
+				display: table-cell;
+
+				width: 1%;
+				vertical-align: bottom;
+
+				.label {
+					display: block;
+
+					color: $color-secondary;
+					font-size: 12px;
+					font-weight: bold;
+				}
+
+				.value {
+					display: block;
+
+					color: $color-accent;
+					font-size: 18px;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
+
+.invisible {
+	width: 0;
+	height: 0;
+
+	font-size: 0;
+	line-height: 0;
+}
