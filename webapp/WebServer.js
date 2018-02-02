@@ -37,6 +37,15 @@ class WebServer {
 
 		this.server.use(Favicon(resolve(process.cwd(), "webapp", "static", "favicon.ico")));
 		this.server.use(Express.static(resolve(process.cwd(), "webapp", "static")));
+
+		this.server.use((req, res, next) => {
+			Log.v(`(${req.protocol}) [${req.method}] ${req.ip} => ${req.hostname} => ${req.originalUrl}`);
+			if(req.query && Object.keys(req.query).length > 0) Log.v(`\t- Query: ${JSON.stringify(req.query)}`);
+			if(req.xhr) Log.v(`\t- XHR: ${req.xhr}`);
+
+			return next();
+		});
+
 		this.server.use("/", new RouterHelper(this).router);
 
 		this.server.use((err, req, res, next) => {
