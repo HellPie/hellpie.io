@@ -5,8 +5,30 @@ const Config = require("../config.json").mastodon;
 
 const Log = require("./../utils/Log");
 
+// Matches hostnames as per RFC-1123
+const regex = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$/;
+
 Router.get("/", (req, res) => {
-	return res.render("index.hbs");
+	Router.mastodon.fetchOwner().then((profile) => {
+		return res.render("index.hbs", {
+			name: profile.display_name,
+			header: profile.header,
+			avatar: profile.avatar,
+			url: profile.url,
+			tag: profile.username,
+			tooltip: Router.mastodon.instance.match(regex),
+			note: profile.note,
+			badges: ["check_circle"],
+			stats: {
+				"Posts": profile.statuses_count,
+				"Following": profile.following_count,
+				"Followers": profile.followers_count
+			}
+		});
+	}).catch((err) => {
+		Log.wtf("Unable to fetch Mastodon API Token owner. Stacktrace will follow.");
+		Log.e(err);
+	});
 });
 
 Router.get("*", (req, res, next) => {

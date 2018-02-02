@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	{{#> head title=display_name color=color}}{{/head}}
+	{{#> head title=name color=color}}{{/head}}
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 
 			<div id="user">
 				<div id="name">
-					{{#if display_name}}{{display_name}}{{else}}No username provided.{{/if}}
+					{{#if name}}{{name}}{{else}}No username provided.{{/if}}
 					{{#if badges}}
 					<span id="badges">
 						{{#each badges}}
