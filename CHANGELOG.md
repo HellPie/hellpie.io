@@ -2,12 +2,21 @@
 All changes to this project wll be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.3.1] - 2018-02-01 17:50
-### Removed
+## [1.0.0] - 2018-02-02 18:28
+### Added:
+- Mastodon API integration within ExpressJS router.
+- Sass/Scss style with color palette based on Twitter Light theme for index page.
+- Rendering of index page with data from Mastodon using the ExpressJS router.
+### Updated:
+- Renamed display_name in handlebars template to be shorter and discard usage of snake_case.
+### Fixed:
+- Day in 0.3.0 changelog.
+### Removed:
 - Unused class that was setup ahead-of-time for storing handlebars helpers.
+- Unpublished 0.3.1 release changelog which had its tag deleted before pushing to master.
 
-## [0.3.0] - 2018-02-01 17:47
-### Added
+## [0.3.0] - 2018-02-02 17:47
+### Added:
 - Handlebars header template with style links and fonts.
 - Handlebars index page with dynamic profile card markup.
 - Favicon served through ExpressJS.
