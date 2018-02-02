@@ -7,7 +7,6 @@ const Sass = require("node-sass-middleware");
 const Handlebars = require("hbs");
 
 const RouterHelper = require("./RouterHelper");
-const HandlerbarsHelper = require("./HandlebarsHelper");
 
 const Log = require("./../utils/Log");
 
@@ -26,12 +25,6 @@ class WebServer {
 		if(this._inited) return;
 
 		Handlebars.registerPartials(resolve(process.cwd(), "webapp", "views", "partials"));
-
-		try {
-			await new HandlerbarsHelper().register(Handlebars);
-		} catch(err) {
-			Log.e(`Failed to register Handlebars helpers: ${err}`);
-		}
 
 		this.server.set("views", resolve(process.cwd(), "webapp", "views"));
 		this.server.set("engine", "hbs");
