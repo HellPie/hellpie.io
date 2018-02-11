@@ -1,17 +1,15 @@
 {
 	"": "This file is also documented in README.md in the \"Configuration\" section.",
 
-	"mastodon": {
-		"token": "Your Mastodon Application's Token.",
-		"id": "Optional. A Mastodon User ID to track.",
+	"hostname": "Which IP or hostname you want ExpressJS to listen on.",
+	"port": "Which port you want ExpressJS to listen on.",
 
-		"config": {
+	"router": {
+		"token": "Your Mastodon Application's Token.",
+		"account": "Optional. A Mastodon User ID to track.",
+
+		"mastodon": {
 			"instance": "The Mastodon instance where you registered the Token."
 		}
-	},
-
-	"webserver": {
-		"hostname": "Which IP or hostname you want ExpressJS to listen on.",
-		"port": "Which port you want ExpressJS to listen on."
 	}
 }

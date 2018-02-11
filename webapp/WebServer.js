@@ -19,6 +19,8 @@ class WebServer {
 
 		this.hostname = config.hostname || "127.0.0.1";
 		this.port = config.port || 5000;
+
+		this.routerConfig = config.router || {};
 	}
 
 	async _init() {
@@ -46,7 +48,7 @@ class WebServer {
 			return next();
 		});
 
-		this.server.use("/", new RouterHelper(this).router);
+		this.server.use("/", new RouterHelper(this, this.routerConfig).router);
 
 		this.server.use((err, req, res, next) => {
 			Log.wtf("Unable to process request. Stacktrace will follow.");
@@ -70,7 +72,7 @@ class WebServer {
 			}
 		});
 
-		this._inited = true;
+		Object.defineProperty(this, "_inited", { value: true });
 	}
 
 	async start() {

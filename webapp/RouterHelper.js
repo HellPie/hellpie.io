@@ -1,7 +1,6 @@
 const Router = require("express").Router();
 
 const MastodonAPI = require("../fediverse/MastodonAPI");
-const Config = require("../config.json").mastodon;
 
 const Log = require("./../utils/Log");
 
@@ -9,14 +8,14 @@ const Log = require("./../utils/Log");
 const regex = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$/;
 
 Router.get("/", (req, res) => {
-	Router.mastodon.fetchOwner().then((profile) => {
+	Router.helper.getData().then((profile) => {
 		return res.render("index.hbs", {
 			name: profile.display_name,
 			header: profile.header,
 			avatar: profile.avatar,
 			url: profile.url,
 			tag: profile.username,
-			tooltip: Router.mastodon.instance.match(regex),
+			tooltip: Router.helper.mastodon.instance.match(regex),
 			note: profile.note,
 			badges: ["check_circle"],
 			stats: {
@@ -52,14 +51,24 @@ Router.get("*", (req, res, next) => {
 
 class RouterHelper {
 
-	constructor(server) {
+	constructor(server, config = {}) {
 		Object.defineProperty(this, "server", { value: server });
+
+		this.account = config.account || null;
+		this.mastodon = new MastodonAPI(config.token, config.mastodon || {});
 	}
 
 	get router() {
-		if(!Router.server) Object.defineProperty(Router, "server", { value: this.server });
-		if(!Router.mastodon) Object.defineProperty(Router, "mastodon", { value: new MastodonAPI(Config.token, Config.config) });
+		if(!Router.helper) Object.defineProperty(Router, "helper", { value: this });
 		return Router;
+	}
+
+	async getData() {
+		if(this.account) {
+			return this.mastodon.fetchUser(this.account);
+		} else {
+			return this.mastodon.fetchOwner();
+		}
 	}
 }
 

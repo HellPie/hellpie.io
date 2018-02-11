@@ -2,6 +2,13 @@
 All changes to this project wll be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2018-02-11 23:
+### Added:
+- Support for defining a specific Mastodon-compatible Account ID from which to fetch data.
+### Updated:
+- Configuration file (see `config_template.json`) to have a tree-like format and allow propagating sub-configs downward.
+- `WebServer._inited` is now hidden and read-only after being set the first time to avoid interference from outsiders.
+
 ## [1.0.2] - 2018-02-04 22:53
 ### Added:
 - Documentation within `README.md` for the WebServer and Mastodon API configuration.
@@ -74,6 +81,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - `LICENSE` file from the Apache2 license
 - `.gitignore` and linting configuration
 
+[2.0.0]: https://github.com/HellPie/hellpie.io/releases/tag/v2.0.0
 [1.0.2]: https://github.com/HellPie/hellpie.io/releases/tag/v1.0.2
 [1.0.1]: https://github.com/HellPie/hellpie.io/tree/dea2f4
 [1.0.0]: https://github.com/HellPie/hellpie.io/releases/tag/v1.0.0
