@@ -1,15 +1,58 @@
-# `HELLPIE.IO` - My own personal webpage
+# [`HELLPIE.IO`](https://hellpie.io) - My own personal webpage
 
 Low profile and minimalistic but with a couple tricks ups its sleeve.
 
 ---
 
-> Basic website description - W.I.P.
+The website is extremely simple. It doesn't have any fancy feature besides automatically fetching data from Mastodon-compatible APIs and the complete lack of client-side JavaScript.
+
+Among its features are:
+- Complete lack of JavaScript client-side, compliant with the 0-bullshit architecture.
+- Minimalistic style inspired by Twitter with easily configurable color palettes.
+- Fully automated fetching of data from Mastodon-compatible APIs to compile the webpage template.
+- Single page design containing the minimal necessary information to describe the user.
 
 ---
 ### Setup instructions:
 
-> W.I.P.
+> **Note:**\
+> Before cloning this repository it should be noted that the project makes use of [NodeJS](https://nodejs.org) server-side and it will therefore be impossible to host it on GitHub Pages or any other static website hosting service, unless [`index.hbs`](./webapp/views/index.hbs) and [`main.scss`](./webapp/static/styles/main.scss) are filled and compiled to static HTML and CSS files.
+
+Before setting up the project the following software will need to be installed on the target system:
+- [Git](https://git-scm.com/) (referenced as the `git` command).
+- [NodeJS](https://nodejs.org/en/) (referenced as the `node` command) at version `9.5.0` or higher (refer to the `engines.node` property in [`packages.json`](./packages.json#L45) for the required version).
+- [Yarn](https://yarnpkg.com/) (referenced as the `yarn` command) or NPM, included in NodeJS but unreliable in its latest versions.
+
+> **Note:**\
+> Additional software such as [NGINX](https://www.nginx.com/) or other web servers is not documented in this setup guide and it is suggested the user refers to specific guides about how to configure the project to communicate to the outside world.
+
+The repository will need to be cloned locally to be executed:
+```shell
+git clone https://github.com/HellPie/hellpie.io.git
+```
+
+From now on the source code of this repository will be available locally at what is assumed to be the path corresponding to `~/hellpie.io/` on the user's system.
+
+To execute the project the first time, installation of NodeJS dependencies is required:
+```shell
+cd ~/hellpie.io
+yarn install --production
+```
+
+> **Node:**\
+> It is suggested that, before running the software, the user configures the project to its likings as specified in the [Configuration](#configuration) section of this document since the project will not start until a valid `config.json` is found.
+
+After installing the required dependencies the project will be executable through the command:
+```shell
+node index.js
+```
+
+Although it is suggested the usage of a process manager, such as [PM2](http://pm2.keymetrics.io/), for which this project already provides a startup configuration. This will allow the project to automatically run in the background, keep itself up-to-date and restart in case of crashes, system reboots or other issues.
+
+To run this project through PM2, referenced as the `pm2` command, it is required that no other instance of the server is running before executing the following command:
+```shell
+pm2 start ecosystem.json
+```
 
 ---
 ### Configuration:
