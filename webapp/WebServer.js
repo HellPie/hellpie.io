@@ -79,7 +79,13 @@ class WebServer {
 		this._init().then(() => {
 			this.server.listen(this.port, this.hostname, (err) => {
 				const address = `${this.hostname}:${this.port}`;
-				err ? Log.e(`Failed to start WebServer on ${address}: ${err}`) : Log.i(`WebServer listening on http://${address}`);
+
+				if(err) {
+					Log.e(`Failed to start WebServer on ${address}: ${err}`);
+				} else {
+					process.send("ready");
+					Log.i(`WebServer listening on http://${address}`);
+				}
 			});
 		}).catch((err) => {
 			Log.e(`Failed to configure WebServer: ${err}`);
