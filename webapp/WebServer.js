@@ -83,7 +83,7 @@ class WebServer {
 				if(err) {
 					Log.e(`Failed to start WebServer on ${address}: ${err}`);
 				} else {
-					process.send("ready");
+					if(process.send) process.send("ready");
 					Log.i(`WebServer listening on http://${address}`);
 				}
 			});
