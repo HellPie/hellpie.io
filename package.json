@@ -1,6 +1,6 @@
 {
 	"name": "hellpie.io",
-	"version": "0.1.0",
+	"version": "2.0.2",
 	"description": "My own personal webpage.",
 	"license": "Apache-2.0",
 	"keywords": [
@@ -31,7 +31,7 @@
 	"scripts": {},
 	"config": {},
 	"dependencies": {
-		"chalk": "^2.3.0",
+		"chalk": "^2.3.1",
 		"express": "^4.16.2",
 		"hbs": "^4.0.1",
 		"moment": "^2.20.1",
@@ -39,10 +39,10 @@
 		"serve-favicon": "^2.4.5"
 	},
 	"devDependencies": {
-		"eslint": "^4.16.0"
+		"eslint": "^4.17.0"
 	},
 	"engines": {
-		"node": "^9.4.0"
+		"node": "^9.5.0"
 	},
 	"private": true
 }
