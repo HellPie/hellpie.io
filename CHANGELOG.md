@@ -2,6 +2,17 @@
 All changes to this project wll be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.2] - 2018-02-12 09:47
+### Added:
+- Integration with `SIGINT` (`message shutdown` on Windows) for graceful shutdown support.
+- Emit of `ready` event after the webserver is properly listening on its designated address.
+- Documentation regarding setup and execution of the server in the `README` file.
+- Description and list of "features" of the project in the `README` file.
+### Updated:
+- Node package dependencies and engine to the latest version.
+- Package version matches current version in changelog.
+- PM2 `ecosystem` file to support `wait_ready` flag and increase memory limit to include the Node runtime in the total.
+
 ## [2.0.1] - 2018-02-12 00:39
 ### Updated:
 - `README` file with documentation regarding the new configuration schema.
@@ -88,6 +99,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - `LICENSE` file from the Apache2 license
 - `.gitignore` and linting configuration
 
+[2.0.2]: https://github.com/HellPie/hellpie.io/releases/tag/v2.0.2
 [2.0.1]: https://github.com/HellPie/hellpie.io/tree/e6c2ff
 [2.0.0]: https://github.com/HellPie/hellpie.io/releases/tag/v2.0.0
 [1.0.2]: https://github.com/HellPie/hellpie.io/releases/tag/v1.0.2
