@@ -3,11 +3,11 @@
 		"name"                  : "hellpie.io",
 		"script"                : "index.js",
 		"watch"                 : true,
-		"max_memory_restart"    : "8M",
+		"max_memory_restart"    : "32M",
 		"max_restarts"          : "8",
-		"min_uptime"            : 16000,
+		"wait_ready"            : true,
 		"restart_delay"         : "3000",
 		"autorestart"           : true,
-		"post_update"           : [ "npm install --production" ]
+		"post_update"           : [ "yarn install --production" ]
 	}]
 }
