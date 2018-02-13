@@ -16,6 +16,12 @@ class WebServer {
 		if(typeof config !== "object") throw new TypeError("Configuration for WebServer must be an Object.");
 
 		Object.defineProperty(this, "server", { value: Express() });
+		Object.defineProperty(this, "_server", {
+			enumerable: false,
+			configurable: false,
+			writable: true,
+			value: null
+		});
 
 		this.hostname = config.hostname || "127.0.0.1";
 		this.port = config.port || 5000;
@@ -77,7 +83,7 @@ class WebServer {
 
 	async start() {
 		this._init().then(() => {
-			this.server.listen(this.port, this.hostname, (err) => {
+			this._server = this.server.listen(this.port, this.hostname, (err) => {
 				const address = `${this.hostname}:${this.port}`;
 
 				if(err) {
@@ -93,7 +99,18 @@ class WebServer {
 	}
 
 	async stop() {
-		this.server.close().catch((err) => Log.e(`Failed to stop WebServer: ${err}`));
+		if(!this._server) {
+			Log.e("WebServer is not running");
+			return;
+		}
+
+		try {
+			this._server.close();
+			this._server = null;
+			Log.i("WebServer stopped.")
+		} catch(err) {
+			Log.e(`Failed to stop WebServer: ${err}`);
+		}
 	}
 
 	async restart() {
