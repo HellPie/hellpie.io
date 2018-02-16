@@ -38,8 +38,8 @@ class WebServer {
 		this.server.set("engine", "hbs");
 
 		this.server.use(Sass({
-			src: resolve(process.cwd(), "webapp", "static", "styles"),
-			dest: resolve(process.cwd(), "webapp", "static", "styles"),
+			src: resolve(process.cwd(), "webapp", "static"),
+			dest: resolve(process.cwd(), "webapp", "static"),
 			outputStyle: "compressed"
 		}));
 
