@@ -2,6 +2,13 @@
 All changes to this project wll be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.4] - 2018-02-17 19:00
+### Updated:
+- Handlebard `index` template code and style using better id/classes and less duplicated code.
+### Fixed:
+- Sass middleware not compiling `.scss` files due to wrong source and destination path configuration.
+- Potential bug when importing styles due to the usage of relative paths in `href` properties.
+
 ## [2.0.3] - 2018-02-13 14:57
 ### Updated:
 - Dependencies for logging output
@@ -106,6 +113,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - `LICENSE` file from the Apache2 license
 - `.gitignore` and linting configuration
 
+[2.0.4]: https://github.com/HellPie/hellpie.io/releases/tag/v2.0.4
 [2.0.3]: https://github.com/HellPie/hellpie.io/releases/tag/v2.0.3
 [2.0.2]: https://github.com/HellPie/hellpie.io/releases/tag/v2.0.2
 [2.0.1]: https://github.com/HellPie/hellpie.io/tree/e6c2ff
