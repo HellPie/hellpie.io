@@ -31,10 +31,12 @@
 				<div id="tag">{{#if tag}}@{{tag}}{{#if tooltip}}<span id="tooltip">{{tooltip}}</span>{{/if}}{{else}}No tag provided.{{/if}}</div>
 			</div>
 
-			<div id="bio">{{#if note}}{{{note}}}{{else}}No bio provided.{{/if}}</div>
+			{{#if note}}
+			<div id="bio">{{{note}}}</div>
+			{{/if}}
 
 			<ul id="stats">
-				{{#if stats}}
+			{{#if stats}}
 				{{#each stats}}
 				<li>
 					<span class="label">{{#if @key}}{{@key}}{{else}}No name provided.{{/if}}</span>
