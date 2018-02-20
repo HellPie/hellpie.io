@@ -1,11 +1,10 @@
+const url = require("url");
+
 const Router = require("express").Router();
 
 const MastodonAPI = require("../fediverse/MastodonAPI");
 
 const Log = require("./../utils/Log");
-
-// Matches hostnames as per RFC-1123
-const regex = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$/;
 
 Router.get("/", (req, res) => {
 	Router.helper.getData().then((profile) => {
@@ -19,7 +18,7 @@ Router.get("/", (req, res) => {
 			button: {
 				url: profile.url
 			},
-			tooltip: Router.helper.mastodon.instance.match(regex),
+			tooltip: url.parse(Router.helper.mastodon.instance).hostname,
 			note: profile.note,
 			badges: ["check_circle"],
 			stats: {
