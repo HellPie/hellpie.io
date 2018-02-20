@@ -11,8 +11,8 @@ Router.get("/", (req, res) => {
 	Router.helper.getData().then((profile) => {
 		return res.render("index.hbs", {
 			user: {
-			header: profile.header,
-			avatar: profile.avatar,
+				header: profile.header,
+				avatar: profile.avatar,
 				name: profile.display_name,
 				tag: profile.username
 			},
@@ -39,18 +39,30 @@ Router.get("*", (req, res, next) => {
 
 	const error = {
 		code: 404,
-		message: "<insert variant of an overused \"page not found\" joke here>"
+		message: "This is not what you were hoping."
 	};
 
 	res.status(404);
 
-	if(req.accepts("html")) {
-		return res.render("error.hbs", error, (err) => next(err));
-	} else if(req.accepts("json")) {
-		return res.json(error);
-	} else {
-		return res.type("txt").send(`${error.code}: ${error.message}`);
-	}
+	Router.helper.getData().then((profile) => {
+		return res.render("error.hbs", {
+			title: `${profile.display_name} - ${error.code}`,
+			error: {
+				image: profile.header,
+				title: error.code.toString(),
+				message: error.message
+			},
+			button: {
+				url: "/",
+				text: "Return to the main page"
+			}
+		});
+	}).catch((err) => {
+		Log.wtf("Unable to fetch Mastodon API Token owner. Stacktrace will follow.");
+		Log.e(err);
+
+		return next(err);
+	});
 });
 
 class RouterHelper {
