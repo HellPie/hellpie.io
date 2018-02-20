@@ -61,7 +61,7 @@ class WebServer {
 			Log.e(err);
 
 			const error = {
-				error: 500,
+				code: 500,
 				message: "I couldn't find an excuse as to why this didn't work."
 			};
 
@@ -70,7 +70,19 @@ class WebServer {
 			if(!req.xhr || req.headersSent) return next();
 
 			if(req.accepts("html")) {
-				return res.render("error.hbs", error, (err) => next(err));
+				return res.render("error.hbs", {
+					title: error.code.toString(),
+					error: {
+						title: error.code.toString(),
+						message: error.message
+					},
+					button: {
+						url: "/",
+						text: "Return to the homepage"
+					}
+				}, (err) => {
+					return next(err);
+				});
 			} else if(req.accepts("json")) {
 				return res.json(error);
 			} else {
