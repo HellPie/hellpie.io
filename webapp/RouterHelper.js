@@ -10,11 +10,15 @@ const regex = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\.)*([A-Za-z0-
 Router.get("/", (req, res) => {
 	Router.helper.getData().then((profile) => {
 		return res.render("index.hbs", {
-			name: profile.display_name,
+			user: {
 			header: profile.header,
 			avatar: profile.avatar,
-			url: profile.url,
-			tag: profile.username,
+				name: profile.display_name,
+				tag: profile.username
+			},
+			button: {
+				url: profile.url
+			},
 			tooltip: Router.helper.mastodon.instance.match(regex),
 			note: profile.note,
 			badges: ["check_circle"],
