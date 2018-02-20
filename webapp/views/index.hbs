@@ -14,7 +14,9 @@
 		<div id="body">
 			<div id="avatar" style="background-image: url('{{user.avatar}}');"></div>
 
-			<a id="button" href="{{url}}" rel="nofollow noopener" target="_blank">View Full Profile</a>
+			{{#if button}}
+			<a id="button" href="{{button.url}}" rel="nofollow noopener" target="_blank">{{#if button.text}}{{button.text}}{{else}}View full profile{{/if}}</a>
+			{{/if}}
 
 			<div id="user">
 				<div id="name">
