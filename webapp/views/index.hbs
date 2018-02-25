@@ -8,6 +8,7 @@
 <body>
 	<div id="background" style="background-image: url('{{user.header}}');"></div>
 
+	<div id="container">
 		<div id="profile">
 			<div id="header" style="background-image: url('{{user.header}}');"></div>
 
@@ -36,9 +37,11 @@
 				{{#if note}}
 				<div id="bio">{{{note}}}</div>
 				{{/if}}
+			</div>
+		</div>
 
 		{{#if stats}}
-			<ul id="stats">
+		<ul>
 			{{#each stats}}
 			<li>
 				<span class="label">{{#if @key}}{{@key}}{{/if}}</span>
@@ -47,7 +50,6 @@
 			{{/each}}
 		</ul>
 		{{/if}}
-		</div>
 
 		{{#if links}}
 		<ul>
