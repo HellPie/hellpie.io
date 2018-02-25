@@ -33,20 +33,20 @@
 				<div id="tag">{{#if user.tag}}@{{user.tag}}{{/if}}{{#if tooltip}}<span id="tooltip">{{tooltip}}</span>{{/if}}</div>
 			</div>
 
-			{{#if note}}
-			<div id="bio">{{{note}}}</div>
-			{{/if}}
+				{{#if note}}
+				<div id="bio">{{{note}}}</div>
+				{{/if}}
 
-			{{#if stats}}
+		{{#if stats}}
 			<ul id="stats">
-				{{#each stats}}
-				<li>
-					<span class="label">{{#if @key}}{{@key}}{{else}}No name provided.{{/if}}</span>
-					<span class="value">{{#if this}}{{this}}{{else}}No value provided.{{/if}}</span>
-				</li>
-				{{/each}}
-			</ul>
-			{{/if}}
+			{{#each stats}}
+			<li>
+				<span class="label">{{#if @key}}{{@key}}{{/if}}</span>
+				<span class="value">{{#if this}}{{this}}{{/if}}</span>
+			</li>
+			{{/each}}
+		</ul>
+		{{/if}}
 		</div>
 	</div>
 </body>
