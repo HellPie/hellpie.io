@@ -25,7 +25,8 @@ Router.get("/", (req, res) => {
 				"Posts": profile.statuses_count,
 				"Following": profile.following_count,
 				"Followers": profile.followers_count
-			}
+			},
+			links: Router.helper.links || undefined
 		});
 	}).catch((err) => {
 		Log.wtf("Unable to fetch Mastodon API Token owner. Stacktrace will follow.");
@@ -69,6 +70,7 @@ class RouterHelper {
 	constructor(server, config = {}) {
 		Object.defineProperty(this, "server", { value: server });
 
+		this.links = config.links || null;
 		this.account = config.account || null;
 		this.mastodon = new MastodonAPI(config.token, config.mastodon || {});
 	}
