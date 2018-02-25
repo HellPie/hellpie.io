@@ -119,7 +119,7 @@ class WebServer {
 		try {
 			this._server.close();
 			this._server = null;
-			Log.i("WebServer stopped.")
+			Log.i("WebServer stopped.");
 		} catch(err) {
 			Log.e(`Failed to stop WebServer: ${err}`);
 		}
