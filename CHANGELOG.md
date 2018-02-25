@@ -2,6 +2,22 @@
 All changes to this project wll be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2018-02-26 00:05
+## Added:
+- Support for custom optional links in `index` template provided by the user through the `config` file.
+## Updated:
+- Card style to be wider and make use of better `SCSS` code for easier future editing.
+- `README` and `config` template to match new feature additions.
+- `RouterHelper` class to support new custom links feature.
+- Style for `index` page using `flex` layout.
+- Customizable profile button using square angles instead of having a rounded border.
+## Fixed:
+- Hostname detection for Mastodon instances.
+- Card not being properly centered in the browser window.
+## Removed:
+- Fallbacks in the Handlebars template when not providing expected data.
+- Drop shadow on card style.
+
 ## [2.1.0] - 2018-02-20 12:03
 ## Added:
 - Handlebars template for `error` page based on the style used in the `index` page.
@@ -123,6 +139,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - `LICENSE` file from the Apache2 license
 - `.gitignore` and linting configuration
 
+[3.0.0]: https://github.com/HellPie/hellpie.io/releases/tag/v3.0.0
 [2.1.0]: https://github.com/HellPie/hellpie.io/releases/tag/v2.1.0
 [2.0.4]: https://github.com/HellPie/hellpie.io/releases/tag/v2.0.4
 [2.0.3]: https://github.com/HellPie/hellpie.io/releases/tag/v2.0.3
