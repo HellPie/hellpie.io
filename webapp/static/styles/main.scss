@@ -43,7 +43,7 @@ body {
 #profile {
 	$card-width: 300px;
 
-	width: $card-width;
+		width: $card-width;
 
 	position: fixed;
 
@@ -58,7 +58,6 @@ body {
 	background: $color-primary_background;
 
 	border-radius: 4px;
-	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25);
 
 	#header {
 		width: $card-width;
