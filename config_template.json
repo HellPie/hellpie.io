@@ -10,6 +10,10 @@
 
 		"mastodon": {
 			"instance": "The Mastodon instance where you registered the Token."
+		},
+
+		"links": {
+			"Icon name": "and link key/value pair to add at the bottom of the page."
 		}
 	}
 }

@@ -11,6 +11,7 @@ Among its features are:
 - Minimalistic style inspired by Twitter with easily configurable color palettes.
 - Fully automated fetching of data from Mastodon-compatible APIs to compile the webpage template.
 - Single page design containing the minimal necessary information to describe the user.
+- Easily customizable interface with support to custom links to user-defined pages.
 
 > **Note:**\
 > Copying the project is discouraged even if compliant with the [Apache 2.0 License](./LICENSE). Instead, it is encouraged to use the code as a base to build upon to develop personalized versions of this software, in accordance with the [`LICENSE`](./LICENSE) terms.
@@ -42,7 +43,7 @@ cd ~/hellpie.io
 yarn install --production
 ```
 
-> **Node:**\
+> **Note:**\
 > It is suggested that, before running the software, the user configures the project to its likings as specified in the [Configuration](#configuration) section of this document since the project will not start until a valid `config.json` is found.
 
 After installing the required dependencies the project will be executable through the command:
@@ -74,6 +75,7 @@ The root attributes of the configuration are used to bind the ExpressJS [WebServ
 	- **`account`**: Mastodon Account ID of the user whose data will be fetched to fill the [`index`](./webapp/views/index.hbs) page.
 	- **`mastodon`**: Contains the required configuration for the [`MastodonAPI`](./fediverse/MastodonAPI.js) class.
 		- **`instance`**: The Mastodon instance where the Mastodon API Token was registered.
+	- **`links`**: A key-value pair where the key is a [Material Icon](https://material.io/icons/) and the value a URL.
 
 > **Note:**\
 > It is highly suggested setting the `hostname` value to `127.0.0.1` and use nginx, Apache or other webserver software to port-forward from the local port to the public port on the public IP address. Using `localhost` may open up the ExpressJS server to unwanted connections depending on which address the system binds to `localhost`.
