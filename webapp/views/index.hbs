@@ -8,30 +8,30 @@
 <body>
 	<div id="background" style="background-image: url('{{user.header}}');"></div>
 
-	<div id="profile">
-		<div id="header" style="background-image: url('{{user.header}}');"></div>
+		<div id="profile">
+			<div id="header" style="background-image: url('{{user.header}}');"></div>
 
-		<div id="body">
-			<div id="avatar" style="background-image: url('{{user.avatar}}');"></div>
+			<div id="body">
+				<div id="avatar" style="background-image: url('{{user.avatar}}');"></div>
 
-			{{#if button}}
-			<a id="button" href="{{button.url}}" rel="nofollow noopener" target="_blank">{{#if button.text}}{{button.text}}{{else}}View full profile{{/if}}</a>
-			{{/if}}
+				{{#if button}}
+				<a id="button" href="{{button.url}}" rel="nofollow noopener" target="_blank">{{#if button.text}}{{button.text}}{{else}}View full profile{{/if}}</a>
+				{{/if}}
 
-			<div id="user">
-				<div id="name">
-					{{user.name}}
-					{{#if badges}}
-					<span id="badges">
-						{{#each badges}}
-						<i class="material-icons">{{this}}</i>
-						{{/each}}
-					</span>
-					{{/if}}
+				<div id="user">
+					<div id="name">
+						{{user.name}}
+						{{#if badges}}
+						<span id="badges">
+							{{#each badges}}
+							<i class="material-icons">{{this}}</i>
+							{{/each}}
+						</span>
+						{{/if}}
+					</div>
+
+					<div id="tag">{{#if user.tag}}@{{user.tag}}{{/if}}{{#if tooltip}}<span id="tooltip">{{tooltip}}</span>{{/if}}</div>
 				</div>
-
-				<div id="tag">{{#if user.tag}}@{{user.tag}}{{/if}}{{#if tooltip}}<span id="tooltip">{{tooltip}}</span>{{/if}}</div>
-			</div>
 
 				{{#if note}}
 				<div id="bio">{{{note}}}</div>
@@ -48,6 +48,14 @@
 		</ul>
 		{{/if}}
 		</div>
+
+		{{#if links}}
+		<ul>
+			{{#each links}}
+			<li><a href="{{this}}" class="material-icons">{{@key}}</a></li>
+			{{/each}}
+		</ul>
+		{{/if}}
 	</div>
 </body>
 
