@@ -6,6 +6,8 @@ $color-accent: #1C94E0;
 $color-primary_background: #FFFFFF;
 $color-secondary_background: #D2DAE2;
 
+$card-width: 500px;
+
 * {
 	font-family: "Noto Sans", "Helvetica Neue", "Roboto", "Segoe UI", Arial, sans-serif;
 }
@@ -41,7 +43,6 @@ body {
 }
 
 #profile {
-	$card-width: 300px;
 
 		width: $card-width;
 
