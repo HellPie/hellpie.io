@@ -8,19 +8,21 @@
 <body>
 	{{#if error.image}}<div id="background" style="background-image: url('{{error.image}}');"></div>{{/if}}
 
-	<div id="profile">
-		{{#if error.image}}<div id="header" style="background-image: url('{{error.image}}');"></div>{{/if}}
+	<div id="container">
+		<div id="profile">
+			{{#if error.image}}<div id="header" style="background-image: url('{{error.image}}');"></div>{{/if}}
 
-		<div id="body">
-			<div id="user">
-				<div id="name">{{error.title}}</div>
+			<div id="body">
+				<div id="user">
+					<div id="name">{{error.title}}</div>
 
-				{{#if button}}
-				<a id="button" href="{{button.url}}" rel="nofollow noopener" target="_self" style="float: center !important;">{{#if button.text}}{{button.text}}{{else}}View full profile{{/if}}</a>
-				{{/if}}
+					{{#if button}}
+					<a id="button" href="{{button.url}}" rel="nofollow noopener" target="_self" style="float: center !important;">{{#if button.text}}{{button.text}}{{else}}View full profile{{/if}}</a>
+					{{/if}}
+				</div>
+
+				<div id="bio">{{error.message}}</div>
 			</div>
-
-			<div id="bio">{{error.message}}</div>
 		</div>
 	</div>
 </body>
