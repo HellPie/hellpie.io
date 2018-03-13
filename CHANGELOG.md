@@ -2,6 +2,12 @@
 All changes to this project wll be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.1] - 2018-03-13 23:51
+## Updated:
+- Errors now show the oopsie woopsie meme instead of the proper `404` or `5XX` code and message.
+## Fixed:
+- Template for `error` page breaking after `3.0.0` introduced `flex` layouts.
+
 ## [3.0.0] - 2018-02-26 00:05
 ## Added:
 - Support for custom optional links in `index` template provided by the user through the `config` file.
@@ -139,6 +145,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - `LICENSE` file from the Apache2 license
 - `.gitignore` and linting configuration
 
+[3.0.1]: https;//github.com/HellPie/hellpie.io/releases/tag/v3.0.1
 [3.0.0]: https://github.com/HellPie/hellpie.io/releases/tag/v3.0.0
 [2.1.0]: https://github.com/HellPie/hellpie.io/releases/tag/v2.1.0
 [2.0.4]: https://github.com/HellPie/hellpie.io/releases/tag/v2.0.4
