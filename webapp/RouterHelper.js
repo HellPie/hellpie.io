@@ -18,7 +18,7 @@ Router.get("/", (req, res) => {
 			button: {
 				url: profile.url
 			},
-			tooltip: url.parse(Router.helper.mastodon.instance).hostname,
+			tooltip: url.parse(profile.url).hostname,
 			note: profile.note,
 			badges: ["check_circle"],
 			stats: {
