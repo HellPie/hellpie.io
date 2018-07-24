@@ -2,36 +2,47 @@
 All changes to this project wll be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2018-07-24 10:50
+### Added:
+- Basic `Dockerfile` to compile the app as a Docker container.
+### Updated:
+- Dependencies and supported NodeJS runtime to latest version.
+- Errors to explain meaningfully the issue instead of showing the woopsie meme like in [3.0.1].
+### Fixed:
+- Tooltip now shows the real instance of the user rather than the instance providing it.
+- Link to version [3.0.1] in `CHANGELOG` breaking due to a typo.
+- `CHANGELOG` containing wrongly formatted sections for version [3.0.1], [3.0.0] and [2.1.0].
+
 ## [3.0.1] - 2018-03-13 23:51
-## Updated:
+### Updated:
 - Errors now show the oopsie woopsie meme instead of the proper `404` or `5XX` code and message.
-## Fixed:
+### Fixed:
 - Template for `error` page breaking after `3.0.0` introduced `flex` layouts.
 
 ## [3.0.0] - 2018-02-26 00:05
-## Added:
+### Added:
 - Support for custom optional links in `index` template provided by the user through the `config` file.
-## Updated:
+### Updated:
 - Card style to be wider and make use of better `SCSS` code for easier future editing.
 - `README` and `config` template to match new feature additions.
 - `RouterHelper` class to support new custom links feature.
 - Style for `index` page using `flex` layout.
 - Customizable profile button using square angles instead of having a rounded border.
-## Fixed:
+### Fixed:
 - Hostname detection for Mastodon instances.
 - Card not being properly centered in the browser window.
-## Removed:
+### Removed:
 - Fallbacks in the Handlebars template when not providing expected data.
 - Drop shadow on card style.
 
 ## [2.1.0] - 2018-02-20 12:03
-## Added:
+### Added:
 - Handlebars template for `error` page based on the style used in the `index` page.
 - Support for custom button text in `index` page.
-## Updated:
+### Updated:
 - Reorganized `index` template data configuration to separate user profile data from generic data.
 - Handlebars template for `index` page removing fallback valuese where data is considered critical.
-## Fixed:
+### Fixed:
 - Small typo in changelog for version `2.0.4`.
 
 ## [2.0.4] - 2018-02-17 19:00
@@ -145,7 +156,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - `LICENSE` file from the Apache2 license
 - `.gitignore` and linting configuration
 
-[3.0.1]: https;//github.com/HellPie/hellpie.io/releases/tag/v3.0.1
+[3.1.0]: https://github.com/HellPie/hellpie.io/releases/tag/v3.1.0
+[3.0.1]: https://github.com/HellPie/hellpie.io/releases/tag/v3.0.1
 [3.0.0]: https://github.com/HellPie/hellpie.io/releases/tag/v3.0.0
 [2.1.0]: https://github.com/HellPie/hellpie.io/releases/tag/v2.1.0
 [2.0.4]: https://github.com/HellPie/hellpie.io/releases/tag/v2.0.4
