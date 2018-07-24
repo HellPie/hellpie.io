@@ -61,8 +61,8 @@ class WebServer {
 			Log.e(err);
 
 			const error = {
-				code: "OOPSIE WOOPSIE!",
-				message: "Uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headwuarters are working VEWY HAWD to fix this!"
+				code: 500,
+				message: "Something went wrong but nobody knows what."
 			};
 
 			res.status(500);

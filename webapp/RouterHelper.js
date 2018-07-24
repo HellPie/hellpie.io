@@ -38,8 +38,8 @@ Router.get("*", (req, res, next) => {
 	Log.wtf(`Unable to process request: Page ${req.path} does not exist.`);
 
 	const error = {
-		code: "OOPSIE WOOPSIE!",
-		message: "Uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headwuarters are working VEWY HAWD to fix this!"
+		code: 404,
+		message: "This is not what you were hoping for."
 	};
 
 	res.status(404);
