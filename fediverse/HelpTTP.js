@@ -14,7 +14,7 @@ class HelpTTP {
 	 * @description Options passed to all methods of an HelpTTP instance.
 	 * @typedef {Object} HelpTTPOptions
 	 * @property {Object} [headers={}] Request headers. Overwrite existing headers.
-	 * @property {string} [data] Data to send as request body.
+	 * @property {any} [data] Data to send as request body.
 	 * @property {Object} [form] Object to send as urlencoded form data. Overwrites data if not falsy.
 	 */
 
@@ -24,6 +24,9 @@ class HelpTTP {
 	 * @param {string} method The HTTP method of the HTTP request.
 	 * @param {string} url The URI to which the HTTP request should be sent to.
 	 * @param {?HelpTTPOptions} [options={}] Options to customize the request.
+	 * @returns {Promise<Object>} The promise wrapping the response to the request.
+	 * @throws {TypeError} Form in options must be an Object if present.
+	 * @throws {URIError} URI protocol is not a valid protocol. Only HTTP or HTTPS may be used.
 	 * @memberof HelpTTP
 	 */
 	static async request(method, url, options = {}) {
@@ -112,7 +115,9 @@ class HelpTTP {
 	 * @static
 	 * @param {string} url The URI to which the HTTP request will be sent to.
 	 * @param {?HelpTTPOptions} options Options to customize the request.
-	 * @returns {?(Error|http.serverResponse)} The content of the request or an error.
+	 * @returns {Promise<Object>} The promise wrapping the response to the request.
+	 * @throws {TypeError} Form in options must be an Object if present.
+	 * @throws {URIError} URI protocol is not a valid protocol. Only HTTP or HTTPS may be used.
 	 * @memberof HelpTTP
 	 */
 	static async get(url, options) {
@@ -124,7 +129,9 @@ class HelpTTP {
 	 * @static
 	 * @param {string} url The URI to which the HTTP request will be sent to.
 	 * @param {?HelpTTPOptions} options Options to customize the request.
-	 * @returns {?(Error|http.serverResponse)} The content of the request or an error.
+	 * @returns {Promise<Object>} The promise wrapping the response to the request.
+	 * @throws {TypeError} Form in options must be an Object if present.
+	 * @throws {URIError} URI protocol is not a valid protocol. Only HTTP or HTTPS may be used.
 	 * @memberof HelpTTP
 	 */
 	static async post(url, options) {
@@ -136,7 +143,9 @@ class HelpTTP {
 	 * @static
 	 * @param {string} url The URI to which the HTTP request will be sent to.
 	 * @param {?HelpTTPOptions} options Options to customize the request.
-	 * @returns {?(Error|http.serverResponse)} The content of the request or an error.
+	 * @returns {Promise<Object>} The promise wrapping the response to the request.
+	 * @throws {TypeError} Form in options must be an Object if present.
+	 * @throws {URIError} URI protocol is not a valid protocol. Only HTTP or HTTPS may be used.
 	 * @memberof HelpTTP
 	 */
 	static async patch(url, options) {
@@ -148,7 +157,9 @@ class HelpTTP {
 	 * @static
 	 * @param {string} url The URI to which the HTTP request will be sent to.
 	 * @param {?HelpTTPOptions} options Options to customize the request.
-	 * @returns {?(Error|http.serverResponse)} The content of the request or an error.
+	 * @returns {Promise<Object>} The promise wrapping the response to the request.
+	 * @throws {TypeError} Form in options must be an Object if present.
+	 * @throws {URIError} URI protocol is not a valid protocol. Only HTTP or HTTPS may be used.
 	 * @memberof HelpTTP
 	 */
 	static async delete(url, options) {
