@@ -19,19 +19,11 @@ class MastodonAPI {
 
 		/**
 		 * @description The Mastodon Application Token to access the Mastodon API.
-		 * @name token
 		 * @type {string}
 		 * @readonly
 		 */
-		Object.defineProperty(this, "token", { value: token });
-
-		/**
-		 * @description The highest Mastodon API version supported by this class.
-		 * @name version
-		 * @type {int}
-		 * @readonly
-		 */
-		Object.defineProperty(this, "version", { value: 1 });
+		this.token = token;
+		Object.freeze(this.token);
 
 		/**
 		 * @description The instance to which this Mastodon client should use to access the Mastodon API.
@@ -41,7 +33,7 @@ class MastodonAPI {
 	}
 
 	get endpoint() {
-		return `${this.instance}/api/v${this.version}`;
+		return `${this.instance}/api/v1`;
 	}
 
 	async _request(method, path) {
