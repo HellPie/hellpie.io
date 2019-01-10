@@ -30,7 +30,7 @@ class WebServer {
 	}
 
 	async _init() {
-		if(this._inited) return;
+		if(this["_inited"]) return;
 
 		Handlebars.registerPartials(resolve(process.cwd(), "webapp", "views", "partials"));
 
