@@ -1,6 +1,6 @@
 # [`HELLPIE.IO`](https://hellpie.io) - My own personal webpage
 
-Low profile and minimalistic but with a couple tricks ups its sleeve.
+Low profile and minimalistic but with attention to details.
 
 ---
 
@@ -14,17 +14,17 @@ Among its features are:
 - Easily customizable interface with support to custom links to user-defined pages.
 
 > **Note:**\
-> Copying the project is discouraged even if compliant with the [Apache 2.0 License](./LICENSE). Instead, it is encouraged to use the code as a base to build upon to develop personalized versions of this software, in accordance with the [`LICENSE`](./LICENSE) terms.
+> Copying the project is discouraged even if compliant with the [Apache 2.0 License](./LICENSE). Instead, it is encouraged to use the code as a base to build upon to develop personalized versions of this software in accordance with the [`LICENSE`](./LICENSE) terms.
 
 ---
 ### Setup instructions:
 
 > **Note:**\
-> Before cloning this repository it should be noted that the project makes use of [NodeJS](https://nodejs.org) server-side and it will therefore be impossible to host it on GitHub Pages or any other static website hosting service, unless [`index.hbs`](./webapp/views/index.hbs) and [`main.scss`](./webapp/static/styles/main.scss) are filled and compiled to static HTML and CSS files.
+> Before cloning this repository it should be noted that the project makes use of [NodeJS](https://nodejs.org) server-side and it will therefore be impossible to host it on GitHub Pages or any other static website hosting service, unless [`index.hbs`](./webapp/views/index.hbs) and [`main.scss`](./webapp/static/styles/main.scss) are first compiled to static HTML and CSS files.
 
 Before setting up the project the following software will need to be installed on the target system:
 - [Git](https://git-scm.com/) (referenced as the `git` command).
-- [NodeJS](https://nodejs.org/en/) (referenced as the `node` command) at version `9.5.0` or higher (refer to the `engines.node` property in [`packages.json`](./packages.json#L45) for the required version).
+- [NodeJS](https://nodejs.org/en/) (referenced as the `node` command) at version `10.7.0` or higher (refer to the `engines.node` property in [`package.json`](./package.json#L45) for the required version).
 - [Yarn](https://yarnpkg.com/) (referenced as the `yarn` command) or NPM, included in NodeJS but unreliable in its latest versions.
 
 > **Note:**\
@@ -51,7 +51,7 @@ After installing the required dependencies the project will be executable throug
 node index.js
 ```
 
-Although it is suggested the usage of a process manager, such as [PM2](http://pm2.keymetrics.io/), for which this project already provides a startup configuration. This will allow the project to automatically run in the background, keep itself up-to-date and restart in case of crashes, system reboots or other issues.
+It is suggested the usage of a process manager, such as [PM2](http://pm2.keymetrics.io/), for which this project already provides a startup configuration. This will allow the project to automatically run in the background, keep itself up-to-date and restart in case of crashes, system reboots or other issues.
 
 To run this project through PM2, referenced as the `pm2` command, it is required that no other instance of the server is running before executing the following command:
 ```shell
@@ -78,7 +78,7 @@ The root attributes of the configuration are used to bind the ExpressJS [WebServ
 	- **`links`**: A key-value pair where the key is a [Material Icon](https://material.io/icons/) and the value a URL.
 
 > **Note:**\
-> It is highly suggested setting the `hostname` value to `127.0.0.1` and use nginx, Apache or other webserver software to port-forward from the local port to the public port on the public IP address. Using `localhost` may open up the ExpressJS server to unwanted connections depending on which address the system binds to `localhost`.
+> It is highly suggested setting the `hostname` value to `127.0.0.1` and use NGINX, Apache or other webserver software to port-forward from the local port to the public port on the public IP address. Using `localhost` may open up the ExpressJS server to unwanted connections depending on which address the system binds to `localhost`.
 
 > **Note:**\
 > If the `router.account` field of the configuration is not provided or its value evaluates to [`falsy`](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) the account owner of the Mastodon API token will be used to populate the template instead.
