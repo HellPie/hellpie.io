@@ -15,6 +15,9 @@ class WebServer {
 	constructor(config = {}) {
 		if(typeof config !== "object") throw new TypeError("Configuration for WebServer must be an Object.");
 
+		this.server = Express();
+		Object.freeze(this.server);
+
 		Object.defineProperty(this, "server", { value: Express() });
 		Object.defineProperty(this, "_server", {
 			enumerable: false,
